@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>
+  var app = angular.module("my-app", []);
+  app.controller('First-Controller',function($scope){
+      $scope.name="Abir";
+  })
+
+  app.controller('Second-Controller',function($scope){
+    $scope.name="Tanvir";
+  })
+
+  app.controller('Third-Controller',function($scope){
+    $scope.names=["Tanvir","Abir", "Rahim", "Karim"];
+  })
+
+  app.controller('Fourth-Controller',function($scope){
+    $scope.fnames=["Create","Read", "Update", "Delete"];
+  })
+
+  app.controller('Login-Controller',function($scope){
+
+    $scope.login=function(){
+        var v = $scope.l;
+        debugger;
+    };
+  })
+</script>
+
+<body ng-app="my-app">
+
+    <div ng-controller="First-Controller">
+          {{name}}
+    </div>
+
+    <div ng-controller="Second-Controller">
+          <p>Name : <input type="text" ng-model="name"></p>
+          <h1>Hello {{name}}</h1>
+          <p ng-bind="name"></p>
+    </div>
+
+    <div ng-controller="Third-Controller">
+      <ul>
+        <li ng-repeat="n in names">
+                {{n}}
+        </li>
+      </ul>
+</div>
+
+<div ng-controller="Fourth-Controller">
+      <table border="1">
+        <th>
+          <h3>Functions</h3>
+        </th>
+        <tr ng-repeat="n in fnames">
+           <td>{{n}}</td>
+        </tr>
+      </table>
+</div>
+
+
+<div ng-controller="Login-Controller">
+   <form ng-submit="login()">
+    <input type="text" ng-model="l.uname" placeholder="Username"> <br>
+    <input type="password" ng-model="l.pass" placeholder="Password"> <br>
+    <input type="submit"> 
+   </form>
+</div>
+
+</body>
+</html>
